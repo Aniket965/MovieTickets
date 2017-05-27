@@ -1,12 +1,15 @@
 package com.scibots.aniket.movietickets.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.scibots.aniket.movietickets.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -15,10 +18,12 @@ import java.util.ArrayList;
  */
 
 public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    Context context;
     private ArrayList<String> dataset;
 
-    public card_layout_adapter(ArrayList<String> dataset) {
+    public card_layout_adapter(ArrayList<String> dataset, Context context) {
         this.dataset = dataset;
+        this.context = context;
     }
 
     @Override
@@ -64,10 +69,14 @@ public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mTitle;
+        public ImageView img;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mTitle = (TextView) itemView.findViewById(R.id.title);
+            img = (ImageView) itemView.findViewById(R.id.poster);
+
+            Picasso.with(context).load("https://image.tmdb.org/t/p/w154//l76lnVXe34KumtSd28dSHqZ9Uw5.jpg").into(img);
 
         }
     }

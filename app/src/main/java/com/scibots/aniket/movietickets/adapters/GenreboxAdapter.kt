@@ -17,7 +17,7 @@ class GenreboxAdapter(internal var context: Context, Moviesdataset: ArrayList<St
     internal var innerAdapter: card_layout_adapter
 
     init {
-        innerAdapter = card_layout_adapter(Moviesdataset)
+        innerAdapter = card_layout_adapter(Moviesdataset, context)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.scibots.aniket.movietickets">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,9 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <uses-permission android:name="android.permission.INTERNET" />
         <activity
             android:name=".HomeScreen"
             android:screenOrientation="portrait">
+            <uses-permission android:name="android.permission.INTERNET" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

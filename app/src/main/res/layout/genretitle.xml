@@ -13,7 +13,7 @@
         android:layout_marginLeft="46dp"
         android:fontFamily="sans-serif-condensed"
         android:text="Sci-fi"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="50dp"
         android:textStyle="bold" />
 
