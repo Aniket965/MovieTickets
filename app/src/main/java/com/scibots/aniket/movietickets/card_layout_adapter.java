@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Created by aniket on 26/5/17.
  */
 
-public class card_layout_adapter extends RecyclerView.Adapter<card_layout_adapter.ViewHolder> {
+public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<String> dataset;
 
     public card_layout_adapter(ArrayList<String> dataset) {
@@ -20,17 +20,41 @@ public class card_layout_adapter extends RecyclerView.Adapter<card_layout_adapte
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.customcardview, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int i) {
+        if (i == 0) {
+            View v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.genretitle, parent, false);
+            ViewHolder1 vh = new ViewHolder1(v);
+            return vh;
+
+        } else {
+            View v = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.customcardview, parent, false);
+            ViewHolder vh = new ViewHolder(v);
+            return vh;
+        }
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        viewHolder.mTitle.setText(dataset.get(i));
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        switch (viewHolder.getItemViewType()) {
+            case 0:
+                ViewHolder1 v1 = (ViewHolder1) viewHolder;
+                v1.mGenre.setText(dataset.get(i));
+                break;
+            default:
+                ViewHolder v = (ViewHolder) viewHolder;
+                v.mTitle.setText(dataset.get(i));
+                break;
+        }
+    }
 
+
+    @Override
+    public int getItemViewType(int position) {
+        // Just as an example, return 0 or 2 depending on position
+        // Note that unlike in ListView adapters, types don't have to be contiguous
+        return position;
     }
 
     @Override
@@ -45,6 +69,15 @@ public class card_layout_adapter extends RecyclerView.Adapter<card_layout_adapte
             super(itemView);
             mTitle = (TextView) itemView.findViewById(R.id.title);
 
+        }
+    }
+
+    public class ViewHolder1 extends RecyclerView.ViewHolder {
+        public TextView mGenre;
+
+        public ViewHolder1(View itemView) {
+            super(itemView);
+            mGenre = (TextView) itemView.findViewById(R.id.genre);
         }
     }
 }

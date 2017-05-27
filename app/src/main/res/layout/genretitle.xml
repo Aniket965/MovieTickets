@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginTop="120dp">
+
+    <TextView
+        android:id="@+id/genre"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Sci-fi"
+        android:textColor="#fff"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+</LinearLayout>

@@ -18,7 +18,7 @@ class HomeScreen : AppCompatActivity() {
         dataset = ArrayList<String>();
         var x: Int = 0
         while (x < 10) {
-            dataset?.add("Movie # $x");
+            dataset?.add("Animated ");
             x++;
         }
         // setting Recycler View

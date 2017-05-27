@@ -9,20 +9,32 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="scroll implementation"
+        android:text="MovieTickets"
         android:textAlignment="textStart"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/scrollcardView"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="240dp"
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="115dp" />
+        android:layout_marginTop="10dp"
+        android:background="@drawable/back"
+        android:foregroundGravity="center" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/scrollcardView1"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@+id/scrollcardView"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/backscifi"
+        android:foregroundGravity="center" />
 
 
 </RelativeLayout>
