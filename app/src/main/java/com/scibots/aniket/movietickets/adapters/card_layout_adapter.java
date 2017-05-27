@@ -2,6 +2,7 @@ package com.scibots.aniket.movietickets.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import com.scibots.aniket.movietickets.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by aniket on 26/5/17.
@@ -19,10 +21,14 @@ import java.util.ArrayList;
 
 public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Context context;
-    private ArrayList<String> dataset;
+    String name;
+    int id;
+    private ArrayList<HashMap<Integer, String>> dataset;
 
-    public card_layout_adapter(ArrayList<String> dataset, Context context) {
-        this.dataset = dataset;
+
+    public card_layout_adapter(Integer id, String name, Context context) {
+        this.name = name;
+        this.id = id;
         this.context = context;
     }
 
@@ -47,11 +53,16 @@ public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         switch (viewHolder.getItemViewType()) {
             case 0:
                 ViewHolder1 v1 = (ViewHolder1) viewHolder;
-                v1.mGenre.setText(dataset.get(i));
+                //           v1.mGenre.setText(dataset.indexOf(i));
+
+
+                Log.d("QW", name + "    " + id);
+
+
                 break;
             default:
                 ViewHolder v = (ViewHolder) viewHolder;
-                v.mTitle.setText(dataset.get(i));
+//                v.mTitle.setText(dataset.get(i));
                 break;
         }
     }
@@ -64,7 +75,7 @@ public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return dataset.size();
+        return 10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -87,6 +98,7 @@ public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public ViewHolder1(View itemView) {
             super(itemView);
             mGenre = (TextView) itemView.findViewById(R.id.genre);
+            mGenre.setText(name);
         }
     }
 }
