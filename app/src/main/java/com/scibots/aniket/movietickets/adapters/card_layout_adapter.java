@@ -1,10 +1,12 @@
-package com.scibots.aniket.movietickets;
+package com.scibots.aniket.movietickets.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.scibots.aniket.movietickets.R;
 
 import java.util.ArrayList;
 
@@ -52,8 +54,6 @@ public class card_layout_adapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemViewType(int position) {
-        // Just as an example, return 0 or 2 depending on position
-        // Note that unlike in ListView adapters, types don't have to be contiguous
         return position;
     }
 

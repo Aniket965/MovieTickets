@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.scibots.aniket.movietickets.adapters.GenreboxAdapter
 
 class HomeScreen : AppCompatActivity() {
     private var mRecylerview: RecyclerView? = null
@@ -22,17 +23,17 @@ class HomeScreen : AppCompatActivity() {
             x++;
         }
         // setting Recycler View
-        mRecylerview = findViewById(R.id.scrollcardView) as RecyclerView?;
+        mRecylerview = findViewById(R.id.genrebox) as RecyclerView?;
         mRecylerview?.setHasFixedSize(true);
 
 
         //setting Layout Manager
-        mLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecylerview?.layoutManager = mLayoutManager;
 
         //setting adapter
 
-        mAdapter = card_layout_adapter(dataset);
+        mAdapter = GenreboxAdapter(this, dataset!!);
         mRecylerview?.adapter = mAdapter;
 
 
