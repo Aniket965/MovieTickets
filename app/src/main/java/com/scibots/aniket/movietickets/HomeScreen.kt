@@ -1,5 +1,6 @@
 package com.scibots.aniket.movietickets
 
+
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -19,7 +20,8 @@ class HomeScreen : AppCompatActivity() {
     private var mRecylerview: RecyclerView? = null
     private var mLayoutManager: RecyclerView.LayoutManager? = null
     private var mAdapter: RecyclerView.Adapter<*>? = null
-    private var dataset: ArrayList<String>? = null
+
+
     private var genreDataset: ArrayList<HashMap<Int, String>>? = null
 
 
@@ -30,7 +32,10 @@ class HomeScreen : AppCompatActivity() {
         genreDataset = ArrayList<HashMap<Int, String>>()
         // request for genre list
         getGenrelist()
+
+
         // setting Recycler View
+
         mRecylerview = findViewById(R.id.genrebox) as RecyclerView?
         mRecylerview?.setHasFixedSize(true)
 
@@ -43,7 +48,21 @@ class HomeScreen : AppCompatActivity() {
 
         mAdapter = GenreboxAdapter(this, genreDataset!!)
         mRecylerview?.adapter = mAdapter
-
+//        var view: RelativeLayout = findViewById(R.id.backgrond1) as RelativeLayout
+//        val img = ImageView(this)
+//        Picasso.with(this)
+//                .load("https://image.tmdb.org/t/p/w300//gih4L6m9u1yB3PGwyJxB5wjzbqR.jpg")
+//                .fit()
+//                .centerCrop()
+//                .into(img, object : Callback {
+//                    override fun onSuccess() {
+//                        view.setBackgroundDrawable(img.getDrawable())
+//                    }
+//
+//                    override fun onError() {
+//
+//                    }
+//                })
 
     }
 
@@ -74,7 +93,7 @@ class HomeScreen : AppCompatActivity() {
 
     }
 
-    private fun parseGenrejsonIntoArraylist(response: JSONObject?) {
+    fun parseGenrejsonIntoArraylist(response: JSONObject?) {
 
         if (response != null) {
             try {
@@ -100,4 +119,6 @@ class HomeScreen : AppCompatActivity() {
 
 
     }
+
+
 }
