@@ -82,7 +82,7 @@ class GenreboxAdapter(internal var context: Context, Moviesdataset: ArrayList<Ha
             for (i in 0..movies.length() - 1) {
 
                 val movie = movies.getJSONObject(i)
-                if (i == j) {
+                if (i == j + 1) {
                     var uri = movie.getString("backdrop_path")
                     viewHolder.setback(uri)
 
